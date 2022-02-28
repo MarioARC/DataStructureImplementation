@@ -24,6 +24,11 @@ public class Stack {
         }
     }
 
+    public int peek()
+    {
+        return head.getData();
+    }
+
     public boolean hasNext()
     {
         Node position = head;
