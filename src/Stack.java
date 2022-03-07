@@ -1,21 +1,53 @@
 public class Stack {
-    private Node head;
+    private Node head, tail;
 
     public Stack()
     {
         head = null;
+        tail = null;
     }
 
-    public void push(int addData)
+    public void pushFirst(int addData)
     {
-        head = new Node(addData, head);
+        Node newNode = new Node(addData);
+        if(head == null)
+        {
+            head = tail = newNode;
+            head.previous = null;
+            tail.next = null;
+        }
+        else
+        {
+            head.previous = newNode;
+            newNode.next = head;
+            head = newNode;
+            head.previous = null;
+        }
     }
 
-    public void pop()
+    public void pushLast(int addData)
+    {
+        Node newNode = new Node(addData);
+        if(head == null)
+        {
+            head = tail = newNode;
+            head.previous = null;
+            tail.next = null;
+        }
+        else
+        {
+            tail.next = newNode;
+            newNode.previous = tail;
+            tail = newNode;
+            tail.next = null;
+        }
+    }
+
+    public void popFirst()
     {
         if(head != null)
         {
-            head = head.getLink();
+            head = head.previous;
         }
         else
         {
@@ -24,19 +56,16 @@ public class Stack {
         }
     }
 
-    public int peek()
+    public void peekFirst()
     {
-        return head.getData();
-    }
-
-    public boolean hasNext()
-    {
-        Node position = head;
-        if(position.getLink() != null)
+        if(head != null)
         {
-            return true;
+            System.out.println(head.getData());
         }
-        return false;
+        else
+        {
+            System.out.println("Empty list");
+        }
     }
 
     public int length()
@@ -46,7 +75,7 @@ public class Stack {
         while (position != null)
         {
             count++;
-            position = position.getLink();
+            position = position.next;
         }
         return count;
     }
@@ -54,37 +83,32 @@ public class Stack {
     public void showList()
     {
         Node position = head;
+        if(head == null)
+        {
+            System.out.println("List is empty");
+            return;
+        }
         while(position != null)
         {
-            System.out.println(position.getData());
-            position = position.getLink();
+            System.out.print(position.getData() + " ");
+            position = position.next;
         }
     }
 
     private class Node
     {
         private int data;
-        private Node link;
+        Node previous;
+        Node next;
 
-        public Node(int data, Node link)
+        public Node(int data)
         {
             this.data = data;
-            this.link = link;
         }
 
         public int getData()
         {
             return data;
-        }
-
-        public Node getLink()
-        {
-            return link;
-        }
-
-        @Override
-        public String toString() {
-            return "data: " + data + " links to " + link;
         }
     }
 }
