@@ -85,7 +85,19 @@ public class Stack {
         }
         else
         {
-            System.out.println("Empty list");
+            System.out.println("List is empty");
+        }
+    }
+
+    public void peekLast()
+    {
+        if(tail != null)
+        {
+            System.out.println(tail.getData());
+        }
+        else
+        {
+            System.out.println("List is empty");
         }
     }
 
@@ -104,7 +116,6 @@ public class Stack {
     public void showList()
     {
         Node position = head;
-        System.out.println();
         if(head == null)
         {
             System.out.println("List is empty");
@@ -115,6 +126,7 @@ public class Stack {
             System.out.print(position.getData() + " ");
             position = position.next;
         }
+        System.out.println();
     }
 
     private class Node
