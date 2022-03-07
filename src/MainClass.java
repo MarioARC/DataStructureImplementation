@@ -9,6 +9,11 @@ public class MainClass {
 
         stack.showList();
 
+        stack.popFirst();
+        stack.popLast();
+
+        stack.showList();
+
 /*
         stack.push(5);
         stack.push(10);

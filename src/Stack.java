@@ -47,7 +47,28 @@ public class Stack {
     {
         if(head != null)
         {
-            head = head.previous;
+            head = head.next;
+            if(head != null)
+            {
+                head.previous = null;
+            }
+        }
+        else
+        {
+            System.out.println("Delete from an empty list?");
+            System.exit(0);
+        }
+    }
+
+    public void popLast()
+    {
+        if(tail != null)
+        {
+            tail = tail.previous;
+            if(tail != null)
+            {
+                tail.next = null;
+            }
         }
         else
         {
@@ -83,6 +104,7 @@ public class Stack {
     public void showList()
     {
         Node position = head;
+        System.out.println();
         if(head == null)
         {
             System.out.println("List is empty");
