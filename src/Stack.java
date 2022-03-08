@@ -48,10 +48,7 @@ public class Stack {
         if(head != null)
         {
             head = head.next;
-            if(head != null)
-            {
-                head.previous = null;
-            }
+            head.previous = null;
         }
         else
         {
@@ -65,10 +62,7 @@ public class Stack {
         if(tail != null)
         {
             tail = tail.previous;
-            if(tail != null)
-            {
-                tail.next = null;
-            }
+            tail.next = null;
         }
         else
         {
@@ -77,27 +71,29 @@ public class Stack {
         }
     }
 
-    public void peekFirst()
+    public String peekFirst()
     {
         if(head != null)
         {
-            System.out.println(head.getData());
+            return head.getData() + "";
         }
         else
         {
             System.out.println("List is empty");
+            return null;
         }
     }
 
-    public void peekLast()
+    public String peekLast()
     {
         if(tail != null)
         {
-            System.out.println(tail.getData());
+            return tail.getData() + "";
         }
         else
         {
             System.out.println("List is empty");
+            return null;
         }
     }
 

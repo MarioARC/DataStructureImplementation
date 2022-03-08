@@ -18,19 +18,5 @@ public class MainClass {
 
         stack.showList();
         System.out.println(stack.length());
-
-/*
-        stack.push(5);
-        stack.push(10);
-
-        stack.showList();
-        System.out.println("Top of stack: " + stack.peek());
-        System.out.println("Stack length: " + stack.length());
-
-        stack.pop();
-        stack.showList();
-        System.out.println("Top of stack: " + stack.peek());
-        System.out.println("Stack length: " + stack.length());
-*/
     }
 }
