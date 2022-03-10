@@ -47,8 +47,16 @@ public class Stack {
     {
         if(head != null)
         {
-            head = head.next;
-            head.previous = null;
+            if(head.next == null)
+            {
+                head = null;
+                tail = null;
+            }
+            else
+            {
+                head = head.next;
+                head.previous = null;
+            }
         }
         else
         {
@@ -61,8 +69,16 @@ public class Stack {
     {
         if(tail != null)
         {
-            tail = tail.previous;
-            tail.next = null;
+            if(tail.previous == null)
+            {
+                tail = null;
+                head = null;
+            }
+            else
+            {
+                tail = tail.previous;
+                tail.next = null;
+            }
         }
         else
         {

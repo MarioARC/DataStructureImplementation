@@ -7,16 +7,21 @@ public class MainClass {
         stack.pushFirst(3);
         stack.pushLast(6);
 
-        stack.peekFirst();
-        stack.peekLast();
-
+        System.out.println("Head of stack: " + stack.peekFirst());
+        System.out.println("Tail of stack: " + stack.peekLast());
+        System.out.println("Stack length: " + stack.length());
         stack.showList();
-        System.out.println(stack.length());
 
         stack.popFirst();
-        stack.popLast();
-
         stack.showList();
-        System.out.println(stack.length());
+
+        stack.popLast();
+        stack.showList();
+
+        stack.popFirst();
+        stack.showList();
+
+        stack.popLast();
+        stack.showList();
     }
 }
